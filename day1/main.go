@@ -1,44 +1,22 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"sort"
 	"strings"
+
+	aoc "github.com/shraddhaag/aoc/library"
 )
 
 var mapDigits map[string]int = map[string]int{"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "zero": 0}
 
 func main() {
 	var sum int
-	for _, line := range readFileLineByLine("input.txt") {
+	for _, line := range aoc.ReadFileLineByLine("input.txt") {
 		sum += fetchNumberFromString(line)
 	}
 
 	fmt.Println(sum)
-}
-
-func readFileLineByLine(path string) []string {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	var output []string
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		output = append(output, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return output
 }
 
 func fetchNumberFromString(input string) int {

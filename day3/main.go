@@ -1,39 +1,17 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"strconv"
 	"strings"
+
+	aoc "github.com/shraddhaag/aoc/library"
 )
 
 func main() {
-	input := readFileLineByLine("input.txt")
+	input := aoc.ReadFileLineByLine("input.txt")
 	fmt.Println("answer for part 1: ", getEngineNumbers(input))
 	fmt.Println("answer for part 2: ", getSlowEngineNumbers(input))
-}
-
-func readFileLineByLine(path string) []string {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	var output []string
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		output = append(output, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return output
 }
 
 type engineNum struct {

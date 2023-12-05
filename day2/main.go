@@ -1,43 +1,21 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"strconv"
 	"strings"
+
+	aoc "github.com/shraddhaag/aoc/library"
 )
 
 func main() {
 	var sum int64
-	for _, line := range readFileLineByLine("input.txt") {
+	for _, line := range aoc.ReadFileLineByLine("input.txt") {
 		sum += calculateLine(line)
 	}
 
 	fmt.Println(sum)
 
-}
-
-func readFileLineByLine(path string) []string {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	var output []string
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		output = append(output, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return output
 }
 
 type gameSet struct {

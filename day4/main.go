@@ -1,17 +1,16 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"strconv"
 	"strings"
 	"unicode"
+
+	aoc "github.com/shraddhaag/aoc/library"
 )
 
 func main() {
-	input := readFileLineByLine("input.txt")
+	input := aoc.ReadFileLineByLine("input.txt")
 
 	var sum int
 	for _, line := range input {
@@ -20,27 +19,6 @@ func main() {
 	}
 	fmt.Println("answer for part 1: ", sum)
 	fmt.Println("answer for part 2: ", findNumberOfCards(input))
-}
-
-func readFileLineByLine(path string) []string {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	var output []string
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		output = append(output, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return output
 }
 
 func findWinPointAndCount(input string) (int, int) {

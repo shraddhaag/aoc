@@ -1,40 +1,16 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
-	"strconv"
 	"strings"
-	"unicode"
+
+	aoc "github.com/shraddhaag/aoc/library"
 )
 
 func main() {
-	input := readFileLineByLine("input.txt")
+	input := aoc.ReadFileLineByLine("input.txt")
 	fmt.Println("answer for part1: ", createMap(input))
 	fmt.Println("answer for part2: ", part2(input))
-}
-
-func readFileLineByLine(path string) []string {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	var output []string
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		output = append(output, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return output
 }
 
 type zoo struct {
@@ -55,7 +31,7 @@ func part2(input []string) int {
 	var mapPointer map[int]zoo
 	for _, line := range input {
 		if strings.Index(line, ":") != -1 && line[:strings.Index(line, ":")] == "seeds" {
-			inputSeeds := fetchNumsInLine(line[strings.Index(line, ":"):])
+			inputSeeds := aoc.FetchSliceOfIntsInString(line[strings.Index(line, ":"):])
 			for i := 0; i < len(inputSeeds); i++ {
 				seeds[inputSeeds[i]] = inputSeeds[i+1] + inputSeeds[i] - 1
 				i++
@@ -98,7 +74,7 @@ func part2(input []string) int {
 			continue
 		}
 
-		nums := fetchNumsInLine(line)
+		nums := aoc.FetchSliceOfIntsInString(line)
 		if len(nums) == 3 {
 			valueStart := nums[0]
 			keyStart := nums[1]
@@ -144,7 +120,7 @@ func createMap(input []string) int {
 	var mapPointer map[int]zoo
 	for _, line := range input {
 		if strings.Index(line, ":") != -1 && line[:strings.Index(line, ":")] == "seeds" {
-			inputSeeds = fetchNumsInLine(line[strings.Index(line, ":"):])
+			inputSeeds = aoc.FetchSliceOfIntsInString(line[strings.Index(line, ":"):])
 			continue
 		}
 
@@ -183,7 +159,7 @@ func createMap(input []string) int {
 			continue
 		}
 
-		nums := fetchNumsInLine(line)
+		nums := aoc.FetchSliceOfIntsInString(line)
 		if len(nums) == 3 {
 			valueStart := nums[0]
 			keyStart := nums[1]
@@ -234,32 +210,4 @@ func findValue(lookIn map[int]zoo, key *int) *int {
 		val = key
 	}
 	return val
-}
-
-func fetchNumsInLine(line string) []int {
-	nums := []int{}
-	var build strings.Builder
-	for _, char := range line {
-		if unicode.IsDigit(char) {
-			build.WriteRune(char)
-		}
-
-		if char == ' ' && build.Len() != 0 {
-			localNum, err := strconv.ParseInt(build.String(), 10, 64)
-			if err != nil {
-				panic(err)
-			}
-			nums = append(nums, int(localNum))
-			build.Reset()
-		}
-	}
-	if build.Len() != 0 {
-		localNum, err := strconv.ParseInt(build.String(), 10, 64)
-		if err != nil {
-			panic(err)
-		}
-		nums = append(nums, int(localNum))
-		build.Reset()
-	}
-	return nums
 }
