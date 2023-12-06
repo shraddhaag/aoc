@@ -9,3 +9,4 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 3| [link](day3/main.go)|
 |Day 4| [link](day4/main.go)|
 |Day 5| [link](day5/main.go)|
+|Dat 6| [link](day6/main.go)|

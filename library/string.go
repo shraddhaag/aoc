@@ -33,3 +33,20 @@ func FetchSliceOfIntsInString(line string) []int {
 	}
 	return nums
 }
+
+func FetchNumFromStringIgnoringNonNumeric(line string) int {
+	var build strings.Builder
+	for _, char := range line {
+		if unicode.IsDigit(char) {
+			build.WriteRune(char)
+		}
+	}
+	if build.Len() != 0 {
+		localNum, err := strconv.ParseInt(build.String(), 10, 64)
+		if err != nil {
+			panic(err)
+		}
+		return int(localNum)
+	}
+	return 0
+}
