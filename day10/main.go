@@ -191,7 +191,6 @@ func findArea(path []position, input []string) (int, map[int]zoo) {
 				a[j] = replaceWith[string(replaceSWith(path[0], path[1], path[len(path)-1], input))]
 			}
 		}
-
 		// clean edges
 		left, right := false, false
 		for i, j := range a {
