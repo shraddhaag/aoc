@@ -8,22 +8,14 @@ import (
 
 func main() {
 	input := aoc.ReadFileLineByLine("input.txt")
-	fmt.Println("answer for part 1: ", ans1(input))
-	fmt.Println("answer for part 2: ", ans2(input))
+	fmt.Println("answer for part 1: ", findSumOfExtensions(input, extendEnd))
+	fmt.Println("answer for part 2: ", findSumOfExtensions(input, extendBeginning))
 }
 
-func ans1(input []string) int {
+func findSumOfExtensions(input []string, extend func([]int, int) int) int {
 	sum := 0
 	for _, line := range input {
-		sum += evaluateHistory(line, extendEnd)
-	}
-	return sum
-}
-
-func ans2(input []string) int {
-	sum := 0
-	for _, line := range input {
-		sum += evaluateHistory(line, extendBeginning)
+		sum += evaluateHistory(line, extend)
 	}
 	return sum
 }

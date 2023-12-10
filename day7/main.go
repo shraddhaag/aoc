@@ -12,8 +12,8 @@ import (
 func main() {
 	input := aoc.ReadFileLineByLine("input.txt")
 
-	fmt.Println("answer for part 1: ", ans1(input))
-	fmt.Println("answer for part 2: ", ans2(input))
+	fmt.Println("answer for part 1: ", evaluateAllHands(input, processHand))
+	fmt.Println("answer for part 2: ", evaluateAllHands(input, processHand2))
 }
 
 type info struct {
@@ -22,20 +22,7 @@ type info struct {
 	rank   int
 }
 
-func ans2(input []string) int {
-	rankMap := map[int][]info{}
-	handMap := map[string]info{}
-	for _, line := range input {
-		hand := processHand2(line)
-		rankMap[hand.rank] = append(rankMap[hand.rank], hand)
-		handMap[hand.hand] = hand
-	}
-
-	return fetchTotalWinnings(rankMap, handMap)
-
-}
-
-func ans1(input []string) int {
+func evaluateAllHands(input []string, processHand func(string) info) int {
 	rankMap := map[int][]info{}
 	handMap := map[string]info{}
 	for _, line := range input {
@@ -289,7 +276,6 @@ func fetchTotalWinnings(rankMap map[int][]info, handMap map[string]info) int {
 
 		for _, j := range sliceHand {
 			mul := (rank * handMap[j].amount)
-			fmt.Println(rank, j, handMap[j].rank, handMap[j].amount, mul)
 			sum += mul
 			rank++
 		}
