@@ -62,3 +62,19 @@ func FetchNumFromStringIgnoringNonNumeric(line string) int {
 	}
 	return 0
 }
+
+func SplitStringAfter(input string, length int) (output []string) {
+	startIndex := 0
+	for startIndex < len(input) {
+		output = append(output, input[startIndex:startIndex+length])
+		startIndex += length
+	}
+	return
+}
+
+func Get2DGrid(input []string) (grid [][]string) {
+	for _, line := range input {
+		grid = append(grid, strings.Split(line, ""))
+	}
+	return
+}
