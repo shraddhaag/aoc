@@ -17,7 +17,11 @@ func main() {
 	}
 
 	fmt.Println("answer for part 1: ", sum)
+	// answer for part 2 using slices
 	fmt.Println("answer for part 2: ", calculateFocusingPower(getFinalStateOfBoxes(steps)))
+	// answer for part2 using linked hashmap
+	fmt.Println("answer for part 2: ", calculateFocusingPower2(getFinalStateOfBoxes2(steps)))
+
 }
 
 func getSteps(input string) []string {
@@ -70,12 +74,42 @@ func getFinalStateOfBoxes(input []string) map[int][]lens {
 	return boxes
 }
 
+func getFinalStateOfBoxes2(input []string) map[int]*aoc.Linkedhashmap[string, int] {
+	boxes := make(map[int]*aoc.Linkedhashmap[string, int], 256)
+	for _, line := range input {
+		label, symbol, boxNum, num := parseSequence(line)
+		switch symbol {
+		case "-":
+			handleDashSymbol2(boxes, boxNum, label)
+		case "=":
+			handleEqualSymbol2(boxes, boxNum, num, label)
+		default:
+			panic("unhandled symbol encountered")
+		}
+	}
+
+	return boxes
+}
+
 func calculateFocusingPower(boxes map[int][]lens) int {
 	sum := 0
 	for boxNum, content := range boxes {
 		for i, l := range content {
 			c := (boxNum + 1) * (i + 1) * l.num
 			sum += c
+		}
+	}
+	return sum
+}
+
+func calculateFocusingPower2(boxes map[int]*aoc.Linkedhashmap[string, int]) int {
+	sum := 0
+	for boxNum, content := range boxes {
+		i := 0
+		for _, num := range content.GetAllValues() {
+			c := (boxNum + 1) * (i + 1) * num
+			sum += c
+			i++
 		}
 	}
 	return sum
@@ -94,6 +128,20 @@ func handleDashSymbol(boxes map[int][]lens, boxNum int, label string) {
 			boxes[boxNum] = replaceWith
 		}
 	}
+}
+
+func handleEqualSymbol2(boxes map[int]*aoc.Linkedhashmap[string, int], boxNum, num int, label string) {
+	if _, ok := boxes[boxNum]; !ok {
+		boxes[boxNum] = &aoc.Linkedhashmap[string, int]{}
+	}
+	boxes[boxNum].Put(label, num)
+}
+
+func handleDashSymbol2(boxes map[int]*aoc.Linkedhashmap[string, int], boxNum int, label string) {
+	if _, ok := boxes[boxNum]; !ok {
+		return
+	}
+	boxes[boxNum].Delete(label)
 }
 
 func handleEqualSymbol(boxes map[int][]lens, boxNum, num int, label string) {
