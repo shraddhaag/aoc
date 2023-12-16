@@ -18,3 +18,5 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 12| [link](day12/main.go)||
 |Day 13| [link](day13/main.go)||
 |Day 14| [link](day14/main.go)||
+|Day 15| [link](day15/main.go)||
+|Day 16| [link](day16/main.go)||
