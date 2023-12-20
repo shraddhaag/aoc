@@ -23,3 +23,4 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 17| [link](day17/main.go)||
 |Day 18| [link](day18/main.go)||
 |Day 19| [link](day19/main.go)||
+|Day 20| [link](day20/main.go)||
