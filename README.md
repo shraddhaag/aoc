@@ -2,6 +2,12 @@
 
 This repository contains solutions to [Advent of Code](https://adventofcode.com/).
 
+### 2024
+
+|Day | Solution Link| Implementation Approach |
+|----|--------------|---|
+|Day 1 | [link](2024/day1/main.go)||
+
 ### 2023
 
 |Day | Solution Link| Implementation Approach |
