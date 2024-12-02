@@ -7,6 +7,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day | Solution Link| Implementation Approach |
 |----|--------------|---|
 |Day 1 | [link](2024/day1/main.go)||
+|Day 2 | [link](2024/day2/main.go)||
 
 ### 2023
 
