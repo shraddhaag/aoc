@@ -8,6 +8,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |----|--------------|---|
 |Day 1 | [link](2024/day1/main.go)||
 |Day 2 | [link](2024/day2/main.go)||
+|Day 3 | [link](2024/day3/main.go)||
 
 ### 2023
 
