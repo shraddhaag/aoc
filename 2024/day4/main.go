@@ -100,7 +100,6 @@ func countXMAS2(input []string) int {
 }
 
 func checkIndex2(input []string, i, j int) int {
-	count := 0
 
 	if j < 1 || j > len(input[i])-2 {
 		return 0
@@ -110,28 +109,28 @@ func checkIndex2(input []string, i, j int) int {
 	// .A.
 	// S.S
 	if input[i-1][j+1] == byte('M') && input[i-1][j-1] == byte('M') && input[i+1][j-1] == byte('S') && input[i+1][j+1] == byte('S') {
-		count++
+		return 1
 	}
 
 	// S.S
 	// .A.
 	// M.M
 	if input[i-1][j+1] == byte('S') && input[i-1][j-1] == byte('S') && input[i+1][j-1] == byte('M') && input[i+1][j+1] == byte('M') {
-		count++
+		return 1
 	}
 
 	// M.S
 	// .A.
 	// M.S
 	if input[i-1][j+1] == byte('S') && input[i-1][j-1] == byte('M') && input[i+1][j-1] == byte('M') && input[i+1][j+1] == byte('S') {
-		count++
+		return 1
 	}
 
 	// S.M
 	// .A.
 	// S.M
 	if input[i-1][j+1] == byte('M') && input[i-1][j-1] == byte('S') && input[i+1][j-1] == byte('S') && input[i+1][j+1] == byte('M') {
-		count++
+		return 1
 	}
-	return count
+	return 0
 }
