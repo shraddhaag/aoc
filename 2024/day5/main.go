@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"reflect"
+	"sort"
 
 	aoc "github.com/shraddhaag/aoc/library"
 )
@@ -9,7 +11,8 @@ import (
 func main() {
 	input := aoc.ReadFileLineByLine("input.txt")
 	rules, updates := getRulesAndUpdates(input)
-	ans1, ans2 := ans(updates, getRulesMap(rules))
+	// ans1, ans2 := ans(updates, getRulesMap(rules))
+	ans1, ans2 := alternativeAns(getRulesMap(rules), updates)
 	fmt.Println("answer for part 1: ", ans1)
 	fmt.Println("answer for part 2: ", ans2)
 }
@@ -117,4 +120,38 @@ func getMiddleNumberAfterFixingUpdate(update []int, ruleMap map[int][]int) int {
 		}
 	}
 	return fixedUpdate[len(update)/2]
+}
+
+// alternative approach: the problem is essentially a sorting problem and
+// the rules given at the beginning are the rules for the sort.
+// we just need to write a custom sort function using the rules.
+func alternativeAns(rulesMap map[int][]int, updates [][]int) (int, int) {
+	sum, fixedSum := 0, 0
+	for _, update := range updates {
+
+		sortedUpdate := make([]int, len(update))
+		copy(sortedUpdate, update)
+
+		sort.Slice(sortedUpdate, func(i, j int) bool {
+			return customLess(rulesMap, sortedUpdate, i, j)
+		})
+
+		if reflect.DeepEqual(update, sortedUpdate) {
+			sum += update[len(update)/2]
+		} else {
+			fixedSum += sortedUpdate[len(update)/2]
+		}
+	}
+	return sum, fixedSum
+}
+
+func customLess(ruleMap map[int][]int, update []int, i, j int) bool {
+	if _, ok := ruleMap[update[i]]; ok {
+		for _, char := range ruleMap[update[i]] {
+			if char == update[j] {
+				return true
+			}
+		}
+	}
+	return false
 }
