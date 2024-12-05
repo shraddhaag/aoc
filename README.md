@@ -4,10 +4,10 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 
 ### 2024
 
-|Day | Solution Link| Implementation Approach |
+|Day | Solution Link| Implementation Approach/Blog posts |
 |----|--------------|---|
-|Day 1 | [link](2024/day1/main.go)||
-|Day 2 | [link](2024/day2/main.go)||
+|Day 1 | [link](2024/day1/main.go)|[AOC 2024, Day 1: Missing abs() for integers](https://www.bytesizego.com/blog/aoc-day1-golang)|
+|Day 2 | [link](2024/day2/main.go)|[AOC 2024, Day 2: Slice Internals Reminder](https://www.bytesizego.com/blog/aoc-day2-golang)|
 |Day 3 | [link](2024/day3/main.go)||
 |Day 4 | [link](2024/day4/main.go)||
 
