@@ -10,6 +10,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 2 | [link](2024/day2/main.go)|[AOC 2024, Day 2: Slice Internals Reminder](https://www.bytesizego.com/blog/aoc-day2-golang)|
 |Day 3 | [link](2024/day3/main.go)||
 |Day 4 | [link](2024/day4/main.go)||
+|Day 5 | [link](2024/day5/main.go)||
 
 ### 2023
 
