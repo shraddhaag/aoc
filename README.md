@@ -11,6 +11,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 3 | [link](2024/day3/main.go)|[AOC 2024, Day 3: All About Regex](https://www.bytesizego.com/blog/aoc-day3-golang)|
 |Day 4 | [link](2024/day4/main.go)||
 |Day 5 | [link](2024/day5/main.go)||
+|Day 6 | [link](2024/day6/main.go)||
 
 ### 2023
 
