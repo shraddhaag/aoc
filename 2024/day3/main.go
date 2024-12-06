@@ -26,12 +26,12 @@ func main() {
 }
 
 func findValidMuls(input string) [][]string {
-	r := regexp.MustCompile(`(mul\()([\d]{1,3})[,]([0-9]{1,3})\)`)
+	r := regexp.MustCompile(`(mul\([\d]{1,3},[0-9]{1,3}\))`)
 	return r.FindAllStringSubmatch(input, -1)
 }
 
 func findValidMulsDoDonts(input string) [][]string {
-	r := regexp.MustCompile(`((mul\()([\d]{1,3})[,]([0-9]{1,3})\))|(do\(\))|(don\'t\(\))`)
+	r := regexp.MustCompile(`(mul\([\d]{1,3},[0-9]{1,3}\))|don't\(\)|do\(\)`)
 	return r.FindAllStringSubmatch(input, -1)
 }
 
