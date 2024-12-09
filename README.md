@@ -10,7 +10,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 2 | [link](2024/day2/main.go)|[AOC 2024, Day 2: Slice Internals Reminder](https://www.bytesizego.com/blog/aoc-day2-golang)|
 |Day 3 | [link](2024/day3/main.go)|[AOC 2024, Day 3: All About Regex](https://www.bytesizego.com/blog/aoc-day3-golang)|
 |Day 4 | [link](2024/day4/main.go)|[AOC 2024, Day 4: Find the X](https://www.bytesizego.com/blog/aoc-day4-golang)|
-|Day 5 | [link](2024/day5/main.go)||
+|Day 5 | [link](2024/day5/main.go)|[AOC 2024, Day 5: Custom Sort](https://www.bytesizego.com/blog/aoc-day5-golang)|
 |Day 6 | [link](2024/day6/main.go)||
 |Day 7 | [link](2024/day7/main.go)||
 |Day 8 | [link](2024/day8/main.go)||
