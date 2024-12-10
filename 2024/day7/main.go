@@ -18,11 +18,11 @@ func ans(input []string) (int, int) {
 	for _, row := range input {
 		nums := aoc.FetchSliceOfIntsInString(row)
 
-		if isSumAMatch(nums[0], 0, nums[1:], false) {
+		if isCalculationAMatch(nums[0], 0, nums[1:], false) {
 			ans1 += nums[0]
 		}
 
-		if isSumAMatch(nums[0], 0, nums[1:], true) {
+		if isCalculationAMatch(nums[0], 0, nums[1:], true) {
 			ans2 += nums[0]
 		}
 	}
@@ -49,7 +49,7 @@ func calculate(a, b int, operation byte) int {
 	return calculation
 }
 
-func isSumAMatch(expectedSum, sum int, input []int, isPart2 bool) bool {
+func isCalculationAMatch(expectedSum, sum int, input []int, isPart2 bool) bool {
 	if len(input) == 0 {
 		return sum == expectedSum
 	}
@@ -58,12 +58,12 @@ func isSumAMatch(expectedSum, sum int, input []int, isPart2 bool) bool {
 		return false
 	}
 
-	if isSumAMatch(expectedSum, calculate(sum, input[0], '+'), input[1:], isPart2) {
+	if isCalculationAMatch(expectedSum, calculate(sum, input[0], '+'), input[1:], isPart2) {
 		return true
 	}
 
-	if isPart2 && isSumAMatch(expectedSum, calculate(sum, input[0], '|'), input[1:], isPart2) {
+	if isPart2 && isCalculationAMatch(expectedSum, calculate(sum, input[0], '|'), input[1:], isPart2) {
 		return true
 	}
-	return isSumAMatch(expectedSum, calculate(sum, input[0], '*'), input[1:], isPart2)
+	return isCalculationAMatch(expectedSum, calculate(sum, input[0], '*'), input[1:], isPart2)
 }
