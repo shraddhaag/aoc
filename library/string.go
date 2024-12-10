@@ -78,3 +78,15 @@ func Get2DGrid(input []string) (grid [][]string) {
 	}
 	return
 }
+
+func Get2DIntGrid(input []string) (grid [][]int) {
+	for _, line := range input {
+		row := strings.Split(line, "")
+		intRow := []int{}
+		for _, char := range row {
+			intRow = append(intRow, FetchNumFromStringIgnoringNonNumeric(char))
+		}
+		grid = append(grid, intRow)
+	}
+	return
+}
