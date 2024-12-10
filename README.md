@@ -11,7 +11,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 3 | [link](2024/day3/main.go)|[AOC 2024, Day 3: All About Regex](https://www.bytesizego.com/blog/aoc-day3-golang)|
 |Day 4 | [link](2024/day4/main.go)|[AOC 2024, Day 4: Find the X](https://www.bytesizego.com/blog/aoc-day4-golang)|
 |Day 5 | [link](2024/day5/main.go)|[AOC 2024, Day 5: Custom Sort](https://www.bytesizego.com/blog/aoc-day5-golang)|
-|Day 6 | [link](2024/day6/main.go)||
+|Day 6 | [link](2024/day6/main.go)|[AOC 2024, Day 6: Escaping & Adding Obstacles](https://www.bytesizego.com/blog/aoc-day6-golang)|
 |Day 7 | [link](2024/day7/main.go)||
 |Day 8 | [link](2024/day8/main.go)||
 |Day 9 | [link](2024/day9/main.go)||
