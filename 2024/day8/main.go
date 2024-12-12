@@ -74,11 +74,11 @@ func calculateValidAntinode(a1, a2 c, maxX, maxY int, input [][]string) []c {
 	c1 := c{a1.x - diffX, a1.y - diffY}
 	c2 := c{a2.x + diffX, a2.y + diffY}
 
-	if !(c1.x >= maxX || c1.x < 0) && !(c1.y >= maxY || c1.y < 0) {
+	if isValidPosition(c1, maxX, maxY) {
 		validAntinode = append(validAntinode, c1)
 	}
 
-	if !(c2.x >= maxX || c2.x < 0) && !(c2.y >= maxY || c2.y < 0) {
+	if isValidPosition(c2, maxX, maxY) {
 		validAntinode = append(validAntinode, c2)
 	}
 
