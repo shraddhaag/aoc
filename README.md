@@ -18,6 +18,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 10 | [link](2024/day10/main.go)||
 |Day 11 | [link](2024/day11/main.go)||
 |Day 12 | [link](2024/day12/main.go)||
+|Day 13 | [link](2024/day13/main.go)||
 ### 2023
 
 |Day | Solution Link| Implementation Approach |

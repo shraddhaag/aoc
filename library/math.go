@@ -35,3 +35,22 @@ func Abs(num int) int {
 	}
 	return num
 }
+
+// solveLinearEquation accepts the coeffecients of two linear equations:
+//
+//	a1x + b1y = c1
+//	a2x + b2y = c2
+//
+// the function retruns two values:
+//
+// boolen - to indicate if the value of X and Y are whole numbers or not.
+// coordinates - actual values for X and Y
+func SolveLinearEquation(a, b, c Coordinates) (bool, Coordinates) {
+	x := ((b.X * (-c.Y)) - (b.Y * (-c.X))) / ((a.X * b.Y) - (a.Y * b.X))
+	y := (((-c.X) * a.Y) - ((-c.Y) * a.X)) / ((a.X * b.Y) - (a.Y * b.X))
+	if (((b.X*(-c.Y))-(b.Y*(-c.X)))%((a.X*b.Y)-(a.Y*b.X)) == 0) &&
+		((((-c.X)*a.Y)-((-c.Y)*a.X))%((a.X*b.Y)-(a.Y*b.X)) == 0) {
+		return true, Coordinates{x, y}
+	}
+	return false, Coordinates{x, y}
+}
