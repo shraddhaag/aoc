@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	input := aoc.ReadFileLineByLine("input.txt")
+	input := aoc.ReadFileLineByLine("input3.txt")
 	fmt.Println("answer for part 1: ", calculateChecksum(moveFileBlocks(generateFileBlock(input[0]))))
-	fmt.Println("answer for part 2: ", calculateChecksum(moveFileBlocks2(generateFileBlock(input[0]))))
+	// fmt.Println("answer for part 2: ", calculateChecksum(moveFileBlocks2(generateFileBlock(input[0]))))
+	fmt.Println("answer for part 2: ", calculateUpdatedCheckSum(performFileCompaction(getHeapsAndFiles(input[0]))))
 }
 
 func generateFileBlock(input string) []int {
@@ -74,15 +75,6 @@ func moveFile(fileBlock []int, length int, originalStartIndex int) {
 	freeSpaceCount := 0
 	freeSpaceStartIndex := -1
 	for i := 1; i <= originalStartIndex; i++ {
-		if fileBlock[i-1] != -1 && fileBlock[i] == -1 {
-			if freeSpaceCount >= length {
-				writeFile(fileBlock, fileBlock[originalStartIndex], length, freeSpaceStartIndex)
-				clearFile(fileBlock, length, originalStartIndex)
-			}
-			freeSpaceStartIndex = i
-			freeSpaceCount = 1
-			continue
-		}
 
 		if fileBlock[i-1] == -1 && fileBlock[i] != -1 {
 			if freeSpaceCount >= length {
@@ -95,6 +87,9 @@ func moveFile(fileBlock []int, length int, originalStartIndex int) {
 
 		if fileBlock[i] == -1 {
 			freeSpaceCount++
+			if freeSpaceStartIndex == -1 {
+				freeSpaceStartIndex = i
+			}
 		}
 	}
 }
