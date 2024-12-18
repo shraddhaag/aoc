@@ -35,7 +35,7 @@ func splitStone(stone int) (int, int) {
 	return aoc.FetchNumFromStringIgnoringNonNumeric(stone1), aoc.FetchNumFromStringIgnoringNonNumeric(stone2)
 }
 
-func getCountAfterBlinks(stone int, cache map[int][]int, blinkCount int) int {
+func getCountAfterXBlinks(stone int, cache map[int][]int, blinkCount int) int {
 	if _, ok := cache[stone]; ok {
 		if cache[stone][blinkCount-1] != 0 {
 			return cache[stone][blinkCount-1]
@@ -52,7 +52,7 @@ func getCountAfterBlinks(stone int, cache map[int][]int, blinkCount int) int {
 	sum := 0
 
 	for _, stone := range getStonesAfterBlink(stone) {
-		sum += getCountAfterBlinks(stone, cache, blinkCount-1)
+		sum += getCountAfterXBlinks(stone, cache, blinkCount-1)
 	}
 
 	cache[stone][blinkCount-1] = sum
@@ -63,7 +63,7 @@ func getStoneCountAfterBlinking(input []int, timesBlink int) int {
 	sum := 0
 	cache := make(map[int][]int)
 	for _, stone := range input {
-		sum += getCountAfterBlinks(stone, cache, timesBlink)
+		sum += getCountAfterXBlinks(stone, cache, timesBlink)
 	}
 	return sum
 }

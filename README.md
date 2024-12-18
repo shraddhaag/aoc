@@ -16,7 +16,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 8 | [link](2024/day8/main.go)|[AOC 2024, Day 8: Reading Comprehension](https://www.bytesizego.com/blog/aoc-day8-golang)|
 |Day 9 | [link](2024/day9/main.go)|[AOC 2024, Day 9: Bonus Heaps!](https://www.bytesizego.com/blog/aoc-day8-golang)|
 |Day 10 | [link](2024/day10/main.go)|[AOC 2024, Day 10: Part 2 easier than part 1?](https://www.bytesizego.com/blog/aoc-day10-golang)|
-|Day 11 | [link](2024/day11/main.go)||
+|Day 11 | [link](2024/day11/main.go)|[AOC 2024, Day 11: Memoisation FTW](https://www.bytesizego.com/blog/aoc-day11-golang)|
 |Day 12 | [link](2024/day12/main.go)||
 |Day 13 | [link](2024/day13/main.go)||
 |Day 14 | [link](2024/day14/main.go)||
