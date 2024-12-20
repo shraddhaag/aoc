@@ -54,3 +54,7 @@ func SolveLinearEquation(a, b, c Coordinates) (bool, Coordinates) {
 	}
 	return false, Coordinates{x, y}
 }
+
+func ManhattanDistance(p1, p2 Coordinates) int {
+	return Abs(p2.Y-p1.Y) + Abs(p1.X-p2.X)
+}
