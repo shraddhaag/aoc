@@ -26,7 +26,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 18 | [link](2024/day18/main.go)||
 |Day 19 | [link](2024/day19/main.go)||
 |Day 20 | [link](2024/day20/main.go)||
-
+|Day 21 | [link](2024/day21/main.go)||
 ### 2023
 
 |Day | Solution Link| Implementation Approach |
