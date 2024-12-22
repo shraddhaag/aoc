@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 
 	aoc "github.com/shraddhaag/aoc/library"
@@ -10,7 +11,7 @@ import (
 func main() {
 	input := aoc.ReadFileLineByLine("input.txt")
 	fmt.Println("answer for part 1: ", getScore(getRobots(input), 101, 103))
-	printAllPossibleGridsToFile(getRobots(input), 101, 103)
+	fmt.Println("answer for part 1: ", findFrameWithLeastEntropy(getRobots(input), 101, 103))
 }
 
 type robot struct {
@@ -74,31 +75,53 @@ func getScore(r []robot, maxX, maxY int) int {
 	return quad[0] * quad[1] * quad[2] * quad[3]
 }
 
-func getGridAfter1Second(r []robot, maxX, maxY int) []robot {
-	updatedRobot := []robot{}
+func writeGridAfterXSecond(r []robot, maxX, maxY int, count int) {
 	grid := make([][]string, maxY)
 	for i := 0; i < maxY; i++ {
 		grid[i] = strings.Split(strings.Repeat(".", maxX), "")
 	}
 	for _, ro := range r {
-		newLoc := getPositionAfterCountSeconds(ro, 1, maxX, maxY)
-		updatedRobot = append(updatedRobot, robot{
-			position: newLoc,
-			velocity: ro.velocity,
-		})
+		newLoc := getPositionAfterCountSeconds(ro, count, maxX, maxY)
 		grid[-newLoc.Y][newLoc.X] = "#"
 	}
 	printGrid(grid, maxX, maxY)
-	return updatedRobot
+	return
+}
+
+func getGridAfterXSecond(r []robot, maxX, maxY int, count int) [][]int {
+	grid := make([][]int, maxY)
+	for i := 0; i < maxY; i++ {
+		grid[i] = make([]int, maxX)
+	}
+	for _, ro := range r {
+		newLoc := getPositionAfterCountSeconds(ro, count, maxX, maxY)
+		grid[-newLoc.Y][newLoc.X] += 1
+	}
+	return grid
 }
 
 func printAllPossibleGridsToFile(r []robot, maxX, maxY int) {
 	count := 0
 	for count < 103*101 {
-		r = getGridAfter1Second(r, maxX, maxY)
-		count++
+		writeGridAfterXSecond(r, maxX, maxY, count)
 		aoc.WriteToFile("output.txt", fmt.Sprintf("output after %d seconds\n", count))
+		count++
 	}
+}
+
+func findFrameWithLeastEntropy(r []robot, maxX, maxY int) int {
+	count := 0
+	entropy := math.MaxFloat64
+	leastEntropySecond := 0
+	for count < 103*101 {
+		currentEntropy := aoc.Entropy(getGridAfterXSecond(r, maxX, maxY, count))
+		if currentEntropy < entropy {
+			entropy = currentEntropy
+			leastEntropySecond = count
+		}
+		count++
+	}
+	return leastEntropySecond
 }
 
 func printGrid(grid [][]string, maxX, maxY int) {
