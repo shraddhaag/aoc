@@ -121,6 +121,7 @@ func findFrameWithLeastEntropy(r []robot, maxX, maxY int) int {
 		}
 		count++
 	}
+	writeGridAfterXSecond(r, maxX, maxY, leastEntropySecond)
 	return leastEntropySecond
 }
 
