@@ -1,0 +1,6 @@
+ka-co
+ta-co
+de-co
+ta-ka
+de-ta
+ka-de
