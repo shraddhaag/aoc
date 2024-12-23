@@ -70,7 +70,6 @@ func getScore(r []robot, maxX, maxY int) int {
 		case x > maxX/2 && y < -maxY/2:
 			quad[3] += 1
 		}
-		// fmt.Println(newPosition, quad)
 	}
 	return quad[0] * quad[1] * quad[2] * quad[3]
 }
@@ -88,6 +87,21 @@ func writeGridAfterXSecond(r []robot, maxX, maxY int, count int) {
 	return
 }
 
+func printGrid(grid [][]string, maxX, maxY int) {
+	for i := 0; i < maxY; i++ {
+		aoc.WriteToFile("output.txt", fmt.Sprintf(strings.Join(grid[i], "")+"\n"))
+	}
+}
+
+func printAllPossibleGridsToFile(r []robot, maxX, maxY int) {
+	count := 0
+	for count < 103*101 {
+		writeGridAfterXSecond(r, maxX, maxY, count)
+		aoc.WriteToFile("output.txt", fmt.Sprintf("output after %d seconds\n", count))
+		count++
+	}
+}
+
 func getGridAfterXSecond(r []robot, maxX, maxY int, count int) [][]int {
 	grid := make([][]int, maxY)
 	for i := 0; i < maxY; i++ {
@@ -98,15 +112,6 @@ func getGridAfterXSecond(r []robot, maxX, maxY int, count int) [][]int {
 		grid[-newLoc.Y][newLoc.X] += 1
 	}
 	return grid
-}
-
-func printAllPossibleGridsToFile(r []robot, maxX, maxY int) {
-	count := 0
-	for count < 103*101 {
-		writeGridAfterXSecond(r, maxX, maxY, count)
-		aoc.WriteToFile("output.txt", fmt.Sprintf("output after %d seconds\n", count))
-		count++
-	}
 }
 
 func findFrameWithLeastEntropy(r []robot, maxX, maxY int) int {
@@ -123,10 +128,4 @@ func findFrameWithLeastEntropy(r []robot, maxX, maxY int) int {
 	}
 	writeGridAfterXSecond(r, maxX, maxY, leastEntropySecond)
 	return leastEntropySecond
-}
-
-func printGrid(grid [][]string, maxX, maxY int) {
-	for i := 0; i < maxY; i++ {
-		aoc.WriteToFile("output.txt", fmt.Sprintf(strings.Join(grid[i], "")+"\n"))
-	}
 }
