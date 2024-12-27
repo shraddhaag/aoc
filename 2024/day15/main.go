@@ -158,7 +158,7 @@ func moveBoxesHorizontally(start, direction aoc.Coordinates, grid [][]string) bo
 		grid[newY][newX], grid[start.Y][start.X] = grid[start.Y][start.X], grid[newY][newX]
 		return true
 	case "]", "[":
-		isPossible := moveBoxes(aoc.Coordinates{newX, newY}, direction, grid)
+		isPossible := moveBoxesHorizontally(aoc.Coordinates{newX, newY}, direction, grid)
 		if !isPossible {
 			return false
 		}

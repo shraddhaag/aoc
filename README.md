@@ -20,7 +20,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 12 | [link](2024/day12/main.go)|[AOC 2024, Day 12: Counting Corners](https://www.bytesizego.com/blog/aoc-day12-golang)|
 |Day 13 | [link](2024/day13/main.go)|[AOC 2024, Day 13: Solving Linear Equations](https://www.bytesizego.com/blog/aoc-day13-golang)|
 |Day 14 | [link](2024/day14/main.go)|[AOC 2024, Day 14: Christmas Tree Hunt](https://www.bytesizego.com/blog/aoc-day14-golang)|
-|Day 15 | [link](2024/day15/main.go)||
+|Day 15 | [link](2024/day15/main.go)|[AOC 2024, Day 15: Moving Boxes](https://www.bytesizego.com/blog/aoc-day15-golang)|
 |Day 16 | [link](2024/day16/main.go)||
 |Day 17 | [link](2024/day17/main.go)||
 |Day 18 | [link](2024/day18/main.go)||
