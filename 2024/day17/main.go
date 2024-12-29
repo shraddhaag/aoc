@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	input := aoc.ReadFileLineByLine("test1.txt")
+	input := aoc.ReadFileLineByLine("evil_input.txt")
 	output := doCalc(processInput(input))
 
 	strSlice := make([]string, len(output))
@@ -23,7 +23,7 @@ func main() {
 	fmt.Println("answer for part 2: ", findValueOfA(processInput(input)))
 }
 
-func getOperandValue(input int64, registerA, registerB, registerC int64) int64 {
+func getComboOperand(input int64, registerA, registerB, registerC int64) int64 {
 	switch input {
 	case 0, 1, 2, 3:
 		return input
@@ -40,17 +40,17 @@ func getOperandValue(input int64, registerA, registerB, registerC int64) int64 {
 }
 
 func processOpcode(operand int64, opcode int64, registerA, registerB, registerC int64, ip int64) (int64, int64, int64, int64, int64) {
-	operandCalculated := getOperandValue(operand, registerA, registerB, registerC)
+	comboOperand := getComboOperand(operand, registerA, registerB, registerC)
 	var output int64
 	output = -1
 
 	switch opcode {
 	case 0:
-		registerA = registerA / int64(math.Pow(2, float64(operandCalculated)))
+		registerA = registerA / int64(math.Pow(2, float64(comboOperand)))
 	case 1:
-		registerB = registerB ^ operandCalculated
+		registerB = registerB ^ operand
 	case 2:
-		registerB = (operandCalculated % 8) % 1000
+		registerB = (comboOperand % 8)
 	case 3:
 		if registerA != 0 {
 			ip = operand
@@ -58,11 +58,11 @@ func processOpcode(operand int64, opcode int64, registerA, registerB, registerC 
 	case 4:
 		registerB = registerB ^ registerC
 	case 5:
-		output = int64(operandCalculated % 8)
+		output = int64(comboOperand % 8)
 	case 6:
-		registerB = registerA / int64(math.Pow(2, float64(operandCalculated)))
+		registerB = registerA / int64(math.Pow(2, float64(comboOperand)))
 	case 7:
-		registerC = registerA / int64(math.Pow(2, float64(operandCalculated)))
+		registerC = registerA / int64(math.Pow(2, float64(comboOperand)))
 	}
 	return registerA, registerB, registerC, ip, output
 }
@@ -111,9 +111,7 @@ func doCalc(a, b, c int64, inst []int64) []int64 {
 func findValueOfA(a, b, c int64, inst []int64) int64 {
 	output := []int64{}
 	a = 1
-	continueLoop := true
-
-	for continueLoop {
+	for {
 		output = doCalc(a, b, c, inst)
 
 		if reflect.DeepEqual(output, inst) {
@@ -135,10 +133,5 @@ func findValueOfA(a, b, c int64, inst []int64) int64 {
 				}
 			}
 		}
-
-		if len(inst) < len(output) {
-			a /= 2
-		}
 	}
-	return a
 }

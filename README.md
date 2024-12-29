@@ -22,7 +22,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 14 | [link](2024/day14/main.go)|[AOC 2024, Day 14: Christmas Tree Hunt](https://www.bytesizego.com/blog/aoc-day14-golang)|
 |Day 15 | [link](2024/day15/main.go)|[AOC 2024, Day 15: Moving Boxes](https://www.bytesizego.com/blog/aoc-day15-golang)|
 |Day 16 | [link](2024/day16/main.go)|[AOC 2024, Day 16: Fun with Dijkstra](https://www.bytesizego.com/blog/aoc-day16-golang)|
-|Day 17 | [link](2024/day17/main.go)||
+|Day 17 | [link](2024/day17/main.go)|[AOC 2024, Day 17: Implementing a Quine](https://www.bytesizego.com/blog/aoc-day17-golang)|
 |Day 18 | [link](2024/day18/main.go)||
 |Day 19 | [link](2024/day19/main.go)||
 |Day 20 | [link](2024/day20/main.go)||
