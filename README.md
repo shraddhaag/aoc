@@ -26,7 +26,7 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 |Day 18 | [link](2024/day18/main.go)|[AOC 2024, Day 18: Falling Walls](https://www.bytesizego.com/blog/aoc-day18-golang)|
 |Day 19 | [link](2024/day19/main.go)|[AOC 2024, Day 19: Designing Towels](https://www.bytesizego.com/blog/aoc-day19-golang)|
 |Day 20 | [link](2024/day20/main.go)|[AOC 2024, Day 20: Manhattan Distance to the Rescue](https://www.bytesizego.com/blog/aoc-day20-golang)|
-|Day 21 | [link](2024/day21/main.go)||
+|Day 21 | [link](2024/day21/main.go)|[AOC 2024, Day 21: Keypad Madness](https://www.bytesizego.com/blog/aoc-day21-golang)|
 |Day 22 | [link](2024/day22/main.go)||
 |Day 23 | [link](2024/day23/main.go)||
 |Day 24 | [link](2024/day24/main.go)||
