@@ -34,26 +34,27 @@ func getTowelsAndDesigns(input []string) (towels []string, designs []string) {
 	return
 }
 
-func isTowelPossible(towel string, towels []string, possible map[string]int) int {
-	if val, ok := possible[towel]; ok {
+func isTowelPossible(towelDesign string, towelPatterns []string, possible map[string]int) int {
+	if val, ok := possible[towelDesign]; ok {
 		return val
 	}
 
 	isPossibleCount := 0
 
-	for _, t := range towels {
-		if len(t) > len(towel) {
+	for _, t := range towelPatterns {
+		if len(t) > len(towelDesign) {
 			continue
 		}
-		if strings.Index(towel, t) == 0 {
-			if len(t) == len(towel) {
+
+		if strings.HasPrefix(towelDesign, t) {
+			if len(t) == len(towelDesign) {
 				isPossibleCount++
 				continue
 			}
-			isPossibleCount += isTowelPossible(towel[len(t):], towels, possible)
+			isPossibleCount += isTowelPossible(towelDesign[len(t):], towelPatterns, possible)
 		}
 	}
-	possible[towel] = isPossibleCount
+	possible[towelDesign] = isPossibleCount
 	return isPossibleCount
 }
 
