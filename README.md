@@ -6,7 +6,8 @@ This repository contains solutions to [Advent of Code](https://adventofcode.com/
 
 |Day|Solution Link|
 |----|------------|
-|Dy 1| [link](2025/day1/main.go)|
+|Day 1| [link](2025/day1/main.go)|
+|Day 2| [link](2025/day2/main.go)|
 
 ### 2024
 
