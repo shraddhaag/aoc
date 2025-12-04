@@ -54,3 +54,14 @@ func Entropy(img [][]int) float64 {
 
 	return entropy
 }
+
+func CopyGrid(input [][]string) [][]string {
+	newGrid := make([][]string, 0)
+
+	for _, row := range input {
+		newRow := make([]string, len(row))
+		copy(newRow, row)
+		newGrid = append(newGrid, newRow)
+	}
+	return newGrid
+}
