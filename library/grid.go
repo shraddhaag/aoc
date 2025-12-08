@@ -6,6 +6,10 @@ type Coordinates struct {
 	X, Y int
 }
 
+type Coordinates3D struct {
+	X, Y, Z int
+}
+
 var (
 	Up    = Coordinates{0, -1}
 	Down  = Coordinates{0, 1}
