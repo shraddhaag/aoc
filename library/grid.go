@@ -1,6 +1,9 @@
 package aoc
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type Coordinates struct {
 	X, Y int
@@ -68,4 +71,10 @@ func CopyGrid(input [][]string) [][]string {
 		newGrid = append(newGrid, newRow)
 	}
 	return newGrid
+}
+
+func PrintGrid(input [][]string) {
+	for _, row := range input {
+		fmt.Println(row)
+	}
 }

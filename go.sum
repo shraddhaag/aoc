@@ -1,3 +1,5 @@
+github.com/draffensperger/golp v0.0.0-20250721104811-2d405f0b4e68 h1:Zt1kA9y7DnXA5ACqWhHFD7yVXag6/uNsikEyR+4l+40=
+github.com/draffensperger/golp v0.0.0-20250721104811-2d405f0b4e68/go.mod h1:/TbDI9zua4CTUs81AOyDxnKAuvXX/SmOjonijHadP+k=
 github.com/emirpasic/gods v1.18.1 h1:FXtiHYKDGKCW2KzwZKx0iC0PQmdlorYgdFG9jPXJ1Bc=
 github.com/emirpasic/gods v1.18.1/go.mod h1:8tpGGwCnJ5H4r6BWwaV6OrWmMoPhUl5jm/FMNAnJvWQ=
 github.com/samber/lo v1.39.0 h1:4gTz1wUhNYLhFSKl6O+8peW0v2F4BCY034GRpU9WnuA=
